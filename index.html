@@ -1,0 +1,63 @@
+﻿<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101820">
+  <title>Block Puzzle</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell">
+    <section class="board-panel" aria-label="Oyun tahtası">
+      <div class="board-wrap">
+        <div class="board" id="board" role="grid" aria-label="8'e 8 oyun tahtası"></div>
+      </div>
+    </section>
+
+    <aside class="control-panel" aria-label="Oyun bilgileri ve kontroller">
+      <header class="intro">
+        <p class="eyebrow">SAKİNCE YERLEŞTİR</p>
+        <h1>Block Puzzle</h1>
+      </header>
+
+      <section class="score-row" aria-label="Oyun durumu">
+        <div class="score-card"><span class="label">SKOR</span><strong id="score">0</strong></div>
+        <div class="score-card combo-card"><span class="label">COMBO</span><strong id="combo">×0</strong></div>
+      </section>
+
+      <section class="pieces-section" aria-label="Mevcut parçalar">
+        <div class="pieces-heading"><span>PARÇALARIN</span><span class="rotate-hint">Üç parçadan birini seç</span></div>
+        <div class="piece-tray" id="pieceTray"></div>
+      </section>
+      <p class="hint" id="hint" aria-live="polite">Bir parça seç ve tahtaya yerleştir.</p>
+
+      <button class="rotate-button" id="rotateButton" type="button" aria-label="Seçili parçayı saat yönünde döndür" disabled><span aria-hidden="true">⟳</span> Döndür <kbd>R</kbd></button>
+      <div class="utility-buttons">
+        <button class="icon-button sound-toggle" id="soundToggle" type="button" aria-pressed="false" aria-label="Sesi aç">♫ <span>Ses kapalı</span></button>
+        <button class="icon-button restart-button" id="restartButton" type="button">↻ <span>Yeniden başlat</span></button>
+      </div>
+
+      <section class="special-cards" aria-label="Özel kartlar">
+        <div class="special-cards-heading"><h2>ÖZEL KARTLAR</h2><span id="cardProgress">0/10 çizgi · 0/3</span></div>
+        <p class="card-message" id="cardMessage" aria-live="polite">Her 10 çizgide bir kart kazan.</p>
+        <div class="special-card-tray" id="specialCardTray"></div>
+      </section>
+    </aside>
+  </main>
+
+  <div class="modal-backdrop hidden" id="gameOver" role="dialog" aria-modal="true" aria-labelledby="gameOverTitle">
+    <div class="modal-card">
+      <div class="modal-mark" aria-hidden="true">✦</div>
+      <p class="eyebrow">OYUN SONA ERDİ</p>
+      <h2 id="gameOverTitle">Güzel bir turdu.</h2>
+      <p class="final-label">SON SKOR</p>
+      <strong class="final-score" id="finalScore">0</strong>
+      <button class="primary-button" id="playAgainButton" type="button">Yeniden oyna</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
